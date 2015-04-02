@@ -1,2 +1,2 @@
-web: gunicorn inicio.wsgi --log-file -
+web: gunicorn cvaldez.wsgi 
 
