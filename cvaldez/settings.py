@@ -145,7 +145,7 @@ import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 
 
-# añadimos esta linea para poder acceder desde el modo seguro
+# anhadimos esta linea para poder acceder desde el modo seguro
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
@@ -153,7 +153,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 
-#configuramos el acceso de los archivos estáticos
+#configuramos el acceso de los archivos estaticos
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
