@@ -1,0 +1,46 @@
+{% extends "base.txt" %}
+
+
+{% block content %}
+{% load url from future %}
+   
+   <head>
+
+        <title>Confecciones y serigrafia Valdez  </title>
+
+        <style type="text/css">
+
+             body { font-family: Arial, Helvetica, sans-serif;color: black;background: #f0aa6f; }
+
+        </style>
+
+    </head>
+
+
+    <body>
+
+        <h1>Editar el estado del pedido</h1>
+           
+        <form action="" method="post" enctype="multipart/form-data">  
+        {% csrf_token %}
+	<table>
+        
+               
+        {{ form.as_table}}
+	         
+        
+	</table>
+	<p><input type="submit" value="GUARDAR CAMBIO"></p>
+	</form>    
+        
+        <td><li><a href= "/inicio/">Regresar al menu inicio</a></li></td>    
+     </body>
+	
+
+{% endblock %}
+
+
+       
+
+
+

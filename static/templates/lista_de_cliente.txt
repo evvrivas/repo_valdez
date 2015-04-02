@@ -1,0 +1,93 @@
+{% extends "base.txt" %}
+
+
+{% block content %}
+{% load url from future %}
+   
+   <head>
+
+        <title>Bienvenido usuario del Sistema Confecciones Valdez  </title>
+
+        <style type="text/css">
+
+             body { font-family: Arial, Helvetica, sans-serif;color: black;background: #f0aa6f; }
+
+        </style>
+
+    </head>
+
+    <body>
+  
+         
+
+        <form  role="form"  enctype="multipart/form-data" action="" method="POST" id="upload-image-form"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+        </form> 
+
+        <h1>Listado de clientes  </h1>           
+                  
+
+           <table border="1">
+
+                 
+
+           {% for i in clientes %} 
+          
+             
+            <tr> 
+                <table border="1">
+ </tr>
+                 <td bgcolor=#7BDBF3 >ID</td> 
+                 <td bgcolor=#7BDBF3 >Nombre</td> 
+                 <td bgcolor=#7BDBF3 >Telefono</td> 
+                 <td bgcolor=#7BDBF3 >Direccion</td>  
+                 <td bgcolor=#7BDBF3 >Direccion</td> 
+                 <td bgcolor=#7BDBF3 >Dui</td> 
+                 <td bgcolor=#7BDBF3 >Nit</td>                  
+                 <td bgcolor=#7BDBF3 >Giro</td> 
+                 <td bgcolor=#7BDBF3 >Registro</td> 
+ </tr>
+
+                {% if i.nombre %}  
+
+                
+              </tr>   
+                <td bgcolor=#F0F0F0> {{i.id}} </td>
+		<td bgcolor=#F0F0F0> <a href= "/editar_cliente/{{i.id}}">{{i.nombre}}</a><br/> </td>
+                <td bgcolor=#F0F0F0> {{i.telefono}} </td>
+                <td bgcolor=#F0F0F0> {{i.email }} </td>
+		<td bgcolor=#F0F0F0> {{i.direccion}} </td>
+		<td bgcolor=#F0F0F0> {{i.dui}}</td>
+                <td bgcolor=#F0F0F0> {{i.nit}} </td>
+                <td bgcolor=#F0F0F0> {{i.giro}} </td>
+                <td bgcolor=#F0F0F0> {{i.registro}} </td>
+                              
+                        
+                {% endif %}          
+            
+            </tr>
+           
+                      
+                 
+                                
+            
+                    
+             
+            
+            {% endfor %}
+
+            </table>
+
+           <td><li><a href= "/inicio/">Regresar al menu inicio</a></li></td>   
+
+         
+           
+            
+   	 </body>
+	
+
+{% endblock %}
+
+
+

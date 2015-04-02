@@ -1,0 +1,90 @@
+{% extends "base.txt" %}
+
+
+{% block content %}
+{% load url from future %}
+   
+   <head>
+
+        <title>Bienvenido usuario del Sistema Confecciones Valdez  </title>
+
+        <style type="text/css">
+
+             body { font-family: Arial, Helvetica, sans-serif;color: black;background: #f0aa6f; }
+
+        </style>
+
+    </head>
+
+    <body>
+  
+         
+
+        <form  role="form"  enctype="multipart/form-data" action="" method="POST" id="upload-image-form"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+        </form> 
+
+        <h1>Inventario  </h1>           
+                  
+
+           <table border="1">
+
+           {% for i in inventario %} 
+            <tr> 
+                 <td bgcolor=#7BDBF3 >ID</td> 
+                 <td bgcolor=#7BDBF3 >Nombre</td> 
+                 <td bgcolor=#7BDBF3 >Descripcion</td> 
+                 <td bgcolor=#7BDBF3 >Tallas</td> 
+                 <td bgcolor=#7BDBF3 >Cantidad</td> 
+                 <td bgcolor=#7BDBF3 >P/U</td>                  
+                 <td bgcolor=#7BDBF3 >Imagen de muestra</td> 
+                 
+            
+            </tr>     
+            <tr> 
+                {% if i.nombre %}  
+            
+                <td bgcolor=#F0F0F0> {{i.id}} </td>
+		<td bgcolor=#F0F0F0> <a href= "/editar_inventario/{{i.id}}">{{i.nombre}}</a><br/> </td>
+                <td bgcolor=#F0F0F0> {{i.descripcion}}<br/> {{i.fecha_inventario}}</td>
+		<td bgcolor=#F0F0F0> {{i.tallas}} </td>
+		<td bgcolor=#F0F0F0> {{i.cantidad}}</td>
+                <td bgcolor=#F0F0F0> {{i.precio}} </td>
+                <td bgcolor=#F0F0F0> <a href="{{media_url}}{{i.imagen1_de_pedido}}" target="_blank"><img src="{{media_url}}{{i.imagen1_de_pedido}}"  width="200" height="250"/></a></td>   
+                              
+                        
+                {% endif %}          
+            
+            </tr>
+           
+            <tr>                  
+                
+                 <td>.</td> 
+                 <td>.</td> 
+                 <td>.</td>  
+                 <td>.</td> 
+                 <td>.</td> 
+                 <td>.</td>            
+                 
+                 <td><li><a href= "/inicio/">Regresar al menu inicio</a></li></td>                  
+            
+            </tr>           
+
+            
+            {% endfor %}
+
+            </table>
+
+            
+
+         
+           
+            
+   	 </body>
+	
+
+{% endblock %}
+
+
+

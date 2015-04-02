@@ -1,0 +1,47 @@
+{% extends "base.txt" %}
+
+
+{% block content %}
+{% load url from future %}
+   
+   <head>
+
+        <title>Confecciones y serigrafia Valdez  </title>
+
+        <style type="text/css">
+
+             body { font-family: Arial, Helvetica, sans-serif;color: black;background: #f0aa6f; }
+
+        </style>
+
+    </head>
+
+
+    <body>
+
+        <h1>Confecciones y serigrafia Valdez</h1>           
+        <form action="" method="post" enctype="multipart/form-data">  
+        {% csrf_token %}
+	<table>
+        {{ form}}        
+	</table>
+	<p><input type="submit" value="GUARDAR"></p>
+	</form>    
+            
+         <li><a> Nombre y firma del cliente   f.______________________________</a></li>  
+         <li><a> </a></li>     	 
+         <li><a> </a></li>   
+         <li><a> </a></li>     	 
+         <li><a> Confecciones y serigrafia Valdez   f.______________________________</a></li>  
+         <td><li><a href= "/inicio/">Regresar al menu inicio</a></li></td> 
+   	 
+     </body>
+	
+
+{% endblock %}
+
+
+       
+
+
+

@@ -1,0 +1,2 @@
+web: gunicorn cvaldez.wsgi --log-file -
+
