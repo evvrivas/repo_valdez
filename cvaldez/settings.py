@@ -118,7 +118,7 @@ def rel (*x):
 
 #STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static', 'media')
+MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'media')
 #STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static', 'static-only')
 
 #STATICFILES_DIRS = (
