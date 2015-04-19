@@ -101,6 +101,12 @@ LOCALIZACION = (
    ('Taller_san_antonio','Taller_san_antonio'),
    )
 
+
+from django.db import models
+from django_dropbox.storage import DropboxStorage
+from django.contrib.auth.models import User
+
+
 class Inventario(models.Model):     
     lugar   = models.CharField(max_length=30,choices=LOCALIZACION)
     nombre   = models.CharField(max_length=30)
@@ -108,6 +114,8 @@ class Inventario(models.Model):
     tallas = models.CharField(max_length=30)
     precios_unitartios = models.CharField(max_length=30,) 
     imagen1_de_pedido= models.ImageField(upload_to='inventario') 
+    user = models.OneToOneField(User,related_name="django_dropbox")
+    dropbox_token = models.CharField(max_length=256)
     fecha_de_inventario  = models.DateTimeField( default=datetime.now) 
     cantidad = models.DecimalField(max_digits=15,decimal_places=0,default=0)
     
