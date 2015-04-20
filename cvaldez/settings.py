@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'cvaldez',
     'cvaldez.datosvaldez',
-    'django_dropbox',
+    
 )
 
 #TEMPLATE_DIRS = ( 
@@ -164,6 +164,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
-DROPBOX_SETTINGS = { 'app_key' : 'jm6ybh2fyifya28', 'app_secret' : '4thks68bso136ik', 'type' : 'cvaldezstore' }
 
