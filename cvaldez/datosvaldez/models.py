@@ -102,10 +102,6 @@ LOCALIZACION = (
    )
 
 
-from django.db import models
-from django_dropbox.storage import DropboxStorage
-from django.contrib.auth.models import User
-
 
 class Inventario(models.Model):     
     lugar   = models.CharField(max_length=30,choices=LOCALIZACION)
