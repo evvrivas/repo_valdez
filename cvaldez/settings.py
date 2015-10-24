@@ -157,7 +157,7 @@ ALLOWED_HOSTS = ['*']
 #configuramos el acceso de los archivos estaticos
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = 'static-only'
 STATIC_URL = '/static/'
 
 
