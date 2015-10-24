@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load url from future %}           
+
+       
+
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title"><center>Tarjetas de circuito impreso Pcb </center></h2>                
+      </div>
+
+
+    <div class="panel-body">
+
+            <div class="row">
+
+             <div class="col-md-4">
+                <div class="thumbnail">                                    
+                  <div class="caption">
+                    <h4><center>Calcular el precio de un lote de tarjetas de circuito impreso</center></h4>     
+                  </div>  
+                  
+                  <form action="." method="POST" > 
+                    {% csrf_token %}
+                     <table> 
+
+                         <div>{{ form }}</div>
+                      
+
+
+
+
+                    </table>
+
+                    <p><input type="submit" value="calcular"></p>
+                    
+                  
+                  
+
+                  
+                </div>
+            </div>
+
+
+
+            <div class="col-md-4">
+                <div class="thumbnail"> 
+
+                  <div class="caption">
+                    <h4><center>Precio calculado</center></h4> 
+                    <h4><center>$ {{precio}} cada tarjeta</center></h4>  
+                    <h4><center>$ {{total}} total a pagar</center></h4>
+
+                  </div>                  
+                    
+                    <p>El precio es calculado en base a las dimenciones de  la tarjeta y las caras a utilizar. Se recomienda diseñar las tarjetas con pistas gruesas.   </p>
+
+                    <br>
+
+                    <p>Haga el calculo, realice el pedido y envie un correo electronnico a artetronica@gmail.com con los archivos del diseño, recomendamos PDF, Eagle Cadsoft, etc. Nosotros estaremos a la espera de su pago para iniciar con la faricacion de su pedido</p>
+                    <br>
+
+                    <p>el timpo de trega depende del dia que usted realice el pago y de la catidad de tarjetas a fabricar  </p> 
+
+                      <br>
+                     <p>cantidad minima del pedido fabricar 12  </p>
+                    
+
+                    </div>   
+               </div>  
+
+                    
+
+
+        <div class="col-md-4">
+                <div class="thumbnail"> 
+
+                  <div class="caption">
+                    <h4><center>Hacer el pedido</center></h4>     
+                  </div>            
+
+
+                  
+                                  
+                                
+                                <label for="username">cantidad</label>
+                                <input type="int" name="cant" value="{{cantidad}}" id="cant">                                                     
+                                <input type="submit" value="ok"  />   
+
+                   </form>
+
+
+                   <li><a href="/get_cart/">Ver mi pedido</a></li>                                 
+                                               
+             </div>  
+
+          </div>
+
+
+
+
+        </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+
+         
+          
+
+
+
+
+
+
+
+ 

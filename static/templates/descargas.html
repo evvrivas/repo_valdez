@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load url from future %}       
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title"><center>Desargas </center></h2>                
+      </div>
+
+
+    <div class="panel-body">
+
+            <div class="row">
+
+             <div class="col-md-4">
+                <div class="thumbnail">                                    
+                  <div class="caption">
+                    <h4><center>listado de reursos para ver y descargar</center></h4>     
+                  </div>  
+                  
+                  <li><a href="/listado/usuario">Descargar Pymblock2 </a></li>
+                  <li><a href="/listado/usuario">Descargar Libro digital de Robotica </a></li>
+                  <li><a href="/listado/usuario">Descargar Pinguino IDE </a></li>    
+                  <li><a href="/listado/usuario">Descargar Arduino IDE </a></li>
+                  
+
+                  
+                </div>
+            </div>
+
+
+
+            <div class="col-md-4">
+                <div class="thumbnail"> 
+
+                  <div class="caption">
+                    <h4><center>Obtener serial key de activacion</center></h4>  
+                    <h4><center>bonos disponibles: {{cant_bonos}}</center></h4>    
+                  </div>                  
+                    
+                    <p>Digite el ID de activacion, haga click sobre el boton calcular, y obtendra un serial key de activacion</p> 
+
+
+                    <form action="" method="post" enctype="multipart/form-data"> 
+                    {% csrf_token %}
+                     <table> 
+                         {{ form }}
+                    </table>
+
+                    <p><input type="submit" value="calcular"></p>
+                    
+                    </form>    
+
+                    </div>   
+               </div>  
+
+                    
+
+
+        <div class="col-md-4">
+                <div class="thumbnail"> 
+
+                  <div class="caption">
+                    <h4><center>Key de pymblok activos</center></h4>     
+                  </div>            
+
+
+                    <div row>
+                         <div class="col-md-2">                           
+                        </div> 
+
+
+                       <div class="col-md-4"> 
+                          <div class="caption">
+                          <p><center>Id de pymblok</center></p>     
+                          </div>   
+                        </div> 
+
+
+
+                         <div class="col-md-4"> 
+                         <div class="caption">
+                         <p><center>Serial key </center></p>     
+                         </div> 
+                        </div> 
+
+
+                         <div class="col-md-2">                           
+                        </div> 
+
+                    </div>  
+
+
+
+                     {%  for i in contrasenas   %}
+                    
+                     <div class="row">
+
+                        <div class="col-md-2">                           
+                        </div> 
+
+
+                       {%  for j in i   %}
+                        <div class="col-md-4">
+                            <center><p> {{ j }}<tr></p> </center>
+                        </div>                       
+                       {%  endfor  %} 
+
+                    <div class="col-md-2">
+                             </div>  
+
+                     </div>
+                    {%  endfor  %}                  
+                   
+                                                  
+                  
+                  
+               
+             </div>  
+
+          </div>
+
+
+
+
+        </div>
+  
+
+
+
+          
+
+        
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+
+         
+          
+
+
+
+
+
+
+
+ 

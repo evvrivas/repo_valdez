@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load url from future %}       
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title"><center>Pedido de productos </center></h2>                
+      </div>
+
+
+    <div class="panel-body">
+
+            <div class="row">
+
+             <div class="col-md-8">
+                <div class="thumbnail">                                    
+                  <div class="caption">
+                    <h4><center>Detalle del pedido</center></h4>     
+                  </div>                  
+                   
+
+                            <table>
+                                <tr>
+                                    <th>Producto</th><th>                </th>
+                                    <th>Precio_Unitario</th><th>         </th>
+                                    <th>Cantidad</th><th>           </th>
+                                    <th>precio total</th>
+                                </tr>
+
+                                {% for item in cart %}
+
+                                <tr>
+                              
+                                
+                                    <td>{{ item }}{{ item.product }}</td><td></td><td></td>
+                                    <td>{{ item.unit_price }}</td><td>.......................</td>
+                                    <td>{{ item.quantity }}</td><td>................</td>
+                                     <td></td>                                     
+                                    <td>{{ item.total_price }}</td>
+                                  </tr>
+                                  <tr></tr>
+
+                                {% endfor %}
+                                <td>{{ total }}</td>
+
+                            </table>
+                  
+                  
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="thumbnail">                                    
+                  
+                   <br>
+                   <center> <a href="/pedido"><button >Realizar el pedido</button></a></center> 
+                   <br>
+                    <p>Al realizar el pedido se le enviara un correo electroico con la informacion del pedido y las diferetes formas que tiene para pagar.</p> 
+
+                    <p>Una vez verificado el pago se procedera a realizar el evio </p> 
+                    
+                                                  
+                  
+                  
+                </div>
+            </div>
+
+
+          </div>
+
+
+
+
+
+
+<div class="row">
+
+             <div class="col-md-3">
+                <div class="thumbnail">                                    
+                  <div class="caption">
+                    <h4><center>Pago por medio Puto expres</center></h4>  
+                    <h4><center>Farmacias Ecoomicas</center></h4>   
+                  </div>                  
+                   
+
+                            
+                  
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="thumbnail">                                    
+                  <div class="caption">
+                    <h4><center>Pago porWestern Union</center></h4>     
+                  </div>                  
+                   
+
+                            
+                  
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="thumbnail">                                    
+                  <div class="caption">
+                    <h4><center>Pago por medio Banco Agricola Comercial BAC</center></h4>     
+                  </div>                  
+                   
+
+                            
+                  
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="thumbnail">                                    
+                  <div class="caption">
+                    <h4><center>Pago por medio de Tigo Moey</center></h4>     
+                  </div>                  
+                   
+
+                            
+                  
+                </div>
+            </div>
+
+
+            
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+  </div>
+
+
+
+
+
+
+
+ 
+           
+
+        
+
+{% endblock %}
+
+
+{ % extends "base.html" %}
+{ % block content %}
+
+{ % endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+
+         
+          
+
+
+
+
+
+
+
+ 

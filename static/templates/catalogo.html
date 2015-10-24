@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load url from future %}           
+
+        <form  role="form"  enctype="multipart/form-data" action="" method="POST" id="upload-image-form"> 
+        
+        </form> 
+
+        <center><h2> *------* A r t e t r o n i c a *------*</h2> </center>
+              {% for i in productos %} 
+     
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title"><center>    {{i.nombre}}   </center></h2>              
+      </div>
+
+      
+<div class="panel-body">
+
+        <div class="row">
+
+
+             <div class="col-md-4">
+                <div id="contenedor">
+        <div id="mycarousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            
+
+            <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#mycarousel" data-slide-to="1"></li>
+            <li data-target="#mycarousel" data-slide-to="2"></li>
+             
+          </ol>
+          <div class="carousel-inner">
+            <div class="active item"> <img src={{MEDIA_URL}}{{i.imagen1}} alt="" /></div>
+            <div class="item"> <img src={{MEDIA_URL}}{{i.imagen2}} alt="" /></div>
+            <div class="item"> <img src={{MEDIA_URL}}{{i.imagen3}} alt="" /></div>
+            
+          </div>
+          <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+</div>
+
+               
+             </div>
+
+
+            <div class="col-md-5">
+                <div class="thumbnail">               
+                                          
+                  <div class="caption">
+
+                    <h4><center>Descripcion</center></h4> 
+
+                    </p> {{i.categoria}}</p> 
+                    </p> {{i.codigo_producto}}</p> 
+                    </p> Existencias:  {{i.cantidad}}</p>  
+                    <p>Nombre: {{i.nombres}} {{i.nombre}} {{i.apellidos}} </p>   
+                    <p>{{i.descripcion}} </p>     
+
+                    <li><a href="{{i.manual}}"> Mannual/Libro   </a><a href="{{i.video}}"> Video/Codigo   </a><a href="{{i.software}}">  Software   </a></li> 
+                    <br>
+                     <li><a href="/editar/{{i.id}}">Editar</a></li>
+                  </div>      
+                </div>
+            </div>               
+
+            
+
+
+            <div class="col-md-3">
+                <div class="thumbnail">
+                                         
+                  <div class="caption">
+                    
+                    <h4><center> Precio </center></h4>   
+                     <p>1 Unidad-->$ {{i.precio_A }}</p> 
+                     <p>de 2-a 5 unidades-->$ {{i.precio_B}}</p> 
+                      <p>6 o  mas unidades-->$ {{i.precio_C}}</p> 
+                      <br> 
+                       
+                     
+                            
+
+                                <form action='/add_to_cart/{{i.id}}/' method='post'>
+                                  {% csrf_token %}
+                                
+                                <label for="username">cantidad</label>
+                                <input type="text" name="cant" value="1" id="cant">
+                                                     
+                                <input type="submit" value="ok"  />                               
+                               
+                                </form>
+
+
+
+                       <li><a href="/get_cart/">Ver mi pedido</a></li>                      
+         
+                       </div>      
+                </div>
+            </div>
+
+
+
+          </div>
+
+        </div>
+  </div>
+
+
+{% endfor %}  
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+
+         
+          
+
+
+
+
+
+
+
+ 

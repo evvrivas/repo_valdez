@@ -1,123 +1,198 @@
 from django.db import models
 from django.contrib.admin.widgets import AdminDateWidget 
-from datetime import datetime
+from datetime import datetime 
 
-# Create your models here.
-# Create your models here.
-PLAZO_DE_ENTREGA= (
-   ('0','0'),
-   ('1','1'),
-   
-   
-)
-#PLAZO_DE_ENTREGA= (
- #  ('Hoy mismo', 0),
-  # ('Un dias', 1),
-   #('Dos dias', 2),
-   #('Tres dias', 3),
-   #('Cuatro dias', 4),
-   #('Cinco dias', 5),
-   #('Seis dias', 6),
-   #('Ocho dias', 8),
-   #('Diez dias', 10),
-   #('Doce dias', 12),
-   #('Quince dias', 15),
-   #('Diesisiete dias', 17),
-   
-#)
-
-HORAS_DE_ENTREGA = (
-   ('9am', '9am'),
-   ('10am', '10am'),
-   ('11am', '11am'),
-   ('12am', '12am'),
-   ('2pm', '2pm'),
-   ('3pm', '3pm'),
-   ('4pm', '4pm'),
-   ('5pm', '5pm'),
-)
-
-ESTADO_DE_CUENTA = (
-   ('Abono_inicial', 'Abono_inicial'),
-   ('Pendiente_de_pago', 'Pendiente_de_pago'),
-   ('Cancelado', 'Cancelado'),
-)
-
-ESTADO_PEDIDO = (
-   ('No_se_ha_iniciado', 'No_se_ha_iniciado'), 
-   ('En_Corte', 'En_corte'), 
-   ('Piezas_en_serigrafia ', 'Piezas_en_serigrafia'), 
-   ('Prendas_en_serigrafia ', 'Prendas_en_serigrafia'), 
-   ('En_confeccion', 'En_confeccion'),
-   ('Bordando_piezas', 'Bordando_piezas'),
-   ('Bordando_Terminados', 'Bordando_Terminados'),
-   ('Terminado', 'Terminado'),
-   ('Terminado_empacado ', 'Terminado_empacado'),
-   ('Entregado', 'Entregado'),
-   ('Pedido_inconsistente', 'Pedido_inconsistente'),
-   ('Pedido_anulado', 'Pedido_anulado'),
-)
-
-class Cliente(models.Model): 
-    nombre = models.CharField(max_length=50)
-    direccion = models.CharField(blank=True,max_length=50)
-    telefono = models.CharField(max_length=50)
-    email = models.EmailField(blank=True,max_length=50)
-    registro = models.CharField(blank=True,max_length=50)
-    giro = models.CharField(blank=True,max_length=50)
-    dui = models.CharField(blank=True,max_length=50)
-    nit = models.CharField(blank=True,max_length=50)
-    def __str__(self):
-        return self.nombre
-    class Admin:
-        pass    
+from django.contrib.auth.models import User
 
 
-class Pedido(models.Model): 
-    cliente = models.ForeignKey(Cliente)   
-    descripcion = models.TextField() 
-    precios_unitartios = models.TextField()
-    imagen1_de_pedido= models.ImageField(blank=True,upload_to='tmp')
-    imagen2_de_pedido= models.ImageField(blank=True,upload_to='tmp')
-    descripcion_bordado  = models.TextField(blank=True)
-    imagen_de_bordado= models.ImageField(blank=True,upload_to='tmp')
-    descripcion_cuellos  = models.TextField(blank=True)
-    fecha_de_orden  = models.DateTimeField( default=datetime.now) 
-    fecha_de_entrega = models.DateField('fecha entrega mes/dia/anho')     
-    hora_de_entrega  = models.CharField(max_length=10,choices=HORAS_DE_ENTREGA)
-    total  =models.DecimalField(max_digits=15,decimal_places=0,default=0)
-    anticipo = models.DecimalField(max_digits=15,decimal_places=0,default=0)
-    estado_de_la_cuenta = models.CharField(max_length=30,choices=ESTADO_DE_CUENTA)   
-    estado_del_pedido   = models.CharField(max_length=30,choices=ESTADO_PEDIDO)
-   
-    def __str__(self):
-        return  self.estado_del_pedido
-    class Admin:
-        pass
+CATEGORIA = (
+   ('tarjeta', 'tarjeta'),
+   ('kits', 'kits'),
+   ('Software', 'Software'),
+   ('shields', 'shields'),
+   ('elementos', 'elementos'),
+   ('proyecto', 'proyecto'),
+   ('sensores', 'sensores'),
+   ('impreso', 'impreso'),
 
-LOCALIZACION = (
-   ('Local_los_pinitos', 'Local_los_pinitos'),
-   ('Taller_la_laguna', 'Taller_la_laguna'),
-   ('Taller_san_antonio','Taller_san_antonio'),
    )
 
-
-
-class Inventario(models.Model):     
-    lugar   = models.CharField(max_length=30,choices=LOCALIZACION)
-    nombre   = models.CharField(max_length=30)
-    descripcion = models.TextField() 
-    tallas = models.CharField(max_length=30)
-    precios_unitartios = models.CharField(max_length=30,) 
-    imagen1_de_pedido= models.ImageField(upload_to='inventario') 
+TIPO_USUARIO = (
+   ('vendedor', 'vendedor'),
+   ('comprador', 'comprador'),
    
-    fecha_de_inventario  = models.DateTimeField( default=datetime.now) 
-    cantidad = models.DecimalField(max_digits=15,decimal_places=0,default=0)
-    
-    def __str__(self):
-        return   self.nombre
+   )
+
+OCUPACION = (
+   ('estudiante_universitario', 'estudiante_universitario'),
+   ('estudiante_bachillerato', 'estudiante_bachillerato'),
+   ('estudiante_basica', 'estudiante_basica'),
+   ('profesional', 'profesional'),
+   ('aficionado', 'aficionado'),
    
-    class Admin:
-        pass
+   )
+CARAS = (  ('una_cara', 'una_cara'), ('doble_cara', 'doble_cara'),  )
+
+class Producto(models.Model):
+      id_usuario=models.IntegerField()
+      categoria=models.CharField(max_length=30,choices=CATEGORIA)
+      cantidad         =  models.DecimalField(max_digits=15,decimal_places=0,default=0)
+      nombre           =  models.CharField(max_length=30)
+      descripcion = models.TextField()
+      imagen1      = models.ImageField(upload_to='tmp')
+      imagen2      = models.ImageField(upload_to='tmp',blank=True)
+      imagen3      = models.ImageField(upload_to='tmp',blank=True)
+      manual      =      models.URLField(blank=True)
+      video       =       models.URLField(blank=True)
+      software     =      models.URLField(blank=True)
+      precio_A  = models.FloatField(blank=True,null= True	)
+      precio_B  = models.FloatField(blank=True,null= True)
+      precio_C = models.FloatField(blank=True,null= True)
+      fecha_ingreso = models.DateField(default=datetime.now)
+      def __str__(self):
+        return  self.nombre
+      class Admin:
+        list_display = ('categoria', 'cantidad', 'nombre','precio_A')
+        #ordering = ('fecha_ingreso')
+        #search_fields = ('nombre')#
 
 
+
+
+class Pcb(models.Model):
+      id_usuario=models.IntegerField()
+      caras=models.CharField(max_length=30,choices=CARAS)
+      cantidad =  models.IntegerField()
+      largo_cm=models.IntegerField()
+      ancho_cm=models.IntegerField()      
+      fecha_ingreso = models.DateField(default=datetime.now)
+      def __str__(self):
+        return  self.caras
+      class Admin:
+        list_display = ('caras', 'cantidad', 'precio_A')
+        #ordering = ('fecha_ingreso')
+        #search_fields = ('nombre')#
+
+class Entrada(models.Model):         
+        entrada=models.IntegerField()        
+              
+        
+class Staff(models.Model):
+        imagen1=models.ImageField(upload_to='tmp')
+        imagen2      = models.ImageField(upload_to='tmp',blank=True)
+        imagen3      = models.ImageField(upload_to='tmp',blank=True)       
+        nombres=models.CharField(max_length=30)
+        apellidos=models.CharField(max_length=30)
+        alias=models.CharField(max_length=30)
+        descripcion = models.TextField()
+        fecha_ingreso=models.DateField(default=datetime.now)
+        #producto = models.ManyToManyField(Producto)
+        def __str__(self):
+          return  self.nombres
+        class Admin:
+          list_display = ('apellidos', 'nombres')
+          ordering = ('fecha_ingreso')
+          search_fields = ('nombres')
+
+
+
+class Usuario(models.Model):
+        imagen1=models.ImageField(upload_to='tmp')
+        #categoria=models.CharField(max_length=30,choices=TIPO_USUARIO)
+        nombres=models.CharField(max_length=30)
+        apellidos=models.CharField(max_length=30)
+        alias=models.CharField(max_length=30)
+        email = models.EmailField()
+        contrasena=models.CharField(max_length=30)
+        direccion_exacta=models.CharField(max_length=60)
+        ciudad_pais=models.CharField(max_length=30)
+        ocupacion=models.CharField(max_length=30,choices=OCUPACION)
+        fecha_ingreso=models.DateField(default=datetime.now)
+        bonos=models.IntegerField(default=2)
+        #producto = models.ManyToManyField(Producto)
+        def __str__(self):
+	    	  return  self.nombres
+        class Admin:
+  	    	list_display = ('categoria', 'nombre')
+  	    	ordering = ('fecha_ingreso')
+  	    	search_fields = ('nombre')
+
+	
+
+
+class Mensaje(models.Model):
+  id_usuario=models.IntegerField(blank=True,)
+  mensaje = models.TextField() 
+  respuesta = models.TextField(blank=True)
+  fecha= models.DateField(default=datetime.now,blank=True,)
+  def __str__(self):
+    return  self.mensaje
+  class Admin:
+    pass
+
+class Seriales_pymblock(models.Model):
+  id_usuario=models.IntegerField()
+  id_usuario_pymblock = models.CharField(max_length=30)
+  fecha= models.DateField(default=datetime.now)
+  def __str__(self):
+    return  self.id_usuario
+  class Admin:
+    pass
+
+
+from django.db import models
+from django.utils.translation import ugettext_lazy as _
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes import generic
+
+class Cart(models.Model):
+    creation_date = models.DateTimeField(verbose_name=_('creation date'))
+    checked_out = models.BooleanField(default=False, verbose_name=_('checked out'))
+
+    class Meta:
+        verbose_name = _('cart')
+        verbose_name_plural = _('carts')
+        ordering = ('-creation_date',)
+
+    def __unicode__(self):
+        return unicode(self.creation_date)
+
+class ItemManager(models.Manager):
+    def get(self, *args, **kwargs):
+        if 'product' in kwargs:
+            kwargs['content_type'] = ContentType.objects.get_for_model(type(kwargs['product']))
+            kwargs['object_id'] = kwargs['product'].pk
+            del(kwargs['product'])
+        return super(ItemManager, self).get(*args, **kwargs)
+
+class Item(models.Model):
+    cart = models.ForeignKey(Cart, verbose_name=_('cart'))
+    quantity = models.PositiveIntegerField(verbose_name=_('quantity'))
+    unit_price = models.DecimalField(max_digits=18, decimal_places=2, verbose_name=_('unit price'))
+    # product as generic relation
+    content_type = models.ForeignKey(ContentType)
+    object_id = models.PositiveIntegerField()
+
+    objects = ItemManager()
+
+    class Meta:
+        verbose_name = _('item')
+        verbose_name_plural = _('items')
+        ordering = ('cart',)
+
+    def __unicode__(self):
+        return u'%d units of %s' % (self.quantity, self.product.__class__.__name__)
+
+    def total_price(self):
+        return self.quantity * self.unit_price
+    total_price = property(total_price)
+
+    # product
+    def get_product(self):
+        return self.content_type.get_object_for_this_type(pk=self.object_id)
+
+    def set_product(self, product):
+        self.content_type = ContentType.objects.get_for_model(type(product))
+        self.object_id = product.pk
+
+    product = property(get_product, set_product)

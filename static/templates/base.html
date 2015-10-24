@@ -1,0 +1,290 @@
+{% load staticfiles %}
+
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+         
+ 
+    <!-- CSS de Bootstrap -->
+       <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <link href={{STATIC_URL}}bootstrap/css/bootstrap.min.css rel="stylesheet" media="screen">
+    <link href={{STATIC_URL}}bootstrap/css/jquery.dataTables.css rel="stylesheet">
+    <link href={{STATIC_URL}}css/style.css rel="stylesheet">
+  
+ 
+  </head>
+
+
+
+  <body> 
+          <br>
+          <div class="row">
+
+             <div class="col-md-8">
+
+                 
+                 <center><img src= {{STATIC_URL}}logo.gif />
+                 <img src= {{STATIC_URL}}slogan.gif /></center>  
+                  
+                
+            </div>
+
+              <div class="col-md-4">
+
+                  {%  if user.is_authenticated%}          
+                       
+                  <li> Hola.!. Bienvenido {{ user.username }} </li>
+                  <li><a href="/accounts/logout/">Cerrar sesion</a></li>
+                  {%  else  %}                                 
+                  <li><a href="/accounts/login/">Entrar como usuario registrado</a></li>
+                  <li><a href="/entrada_usuario">Registrarme como usuario</a></li>
+                  {% endif %}   
+                   
+             
+            </div>
+             <div class="row">
+              <li>{{current_date}}</li>
+              </div>    
+
+
+
+            </div>
+
+             <br>
+                   
+           <div class="row">
+
+             <div class="col-md-12">
+
+                   <center>  
+                                       
+
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle"
+                                data-toggle="dropdown">
+                          Inicio <span class="caret"></span>
+                        </button>
+                       
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/principal">Pagina principal</a></li>
+                          <li><a href="/informacion">Quiero ver informacion de artetronica</a></li>
+                          <li><a href="/listado/staff">Quiero ver el Staff de Artetronica</a></li>
+                          <li><a href="/listado/usuario">Quiero ver a los usuarios registrados</a></li>
+                          <li><a href="/entrada_mensaje/0">Quiero hacer una preguta</a></li>
+                          <li><a href="/entrada_mensaje/0">Quiero ver mis pregutas y respuestas</a></li>
+                          <li><a href="/entrada_mensaje/1">Quiero ver todas las preguntas de los usuarios</a></li>
+
+                          <li><a href="/entrada_producto">Entrar un producto</a></li>
+                          <li><a href="/descargas">Descargas</a></li>
+                          
+                        </ul>
+                       </div>
+
+                       <div class="btn-group">
+                        <button type="button" class="btn btn-danger dropdown-toggle"
+                                data-toggle="dropdown">
+                          Desargas <span class="caret"></span>
+                        </button>
+                       
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/descargas">Descargar libro de robotia</a></li>
+                          <li><a href="/descargas">Descargar Pymblock2</a></li>
+                          <li><a href="/descargas">Descargar Arduino IDE</a></li>
+                          <li><a href="/descargas">Descargar Pinguino IDE </a></li>
+                          <li><a href="/descargas">Obtener un serial Key de pymblock</a></li>                      
+                          
+                        </ul>
+                       </div>
+
+
+                     <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle"
+                                data-toggle="dropdown">
+                          Proyectos <span class="caret"></span>
+                        </button>
+                       
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/listado_producto/proyecto">Proyectos escolares</a></li>
+                          <li><a href="/listado_producto/proyecto">Proyectos profesionales</a></li>
+                          <li><a href="/listado_producto/proyecto">Proyectos independientes</a></li>
+                          <li><a href="/listado/producto">Todos los produtos</a></li>
+
+                          
+                        </ul>
+                       </div>
+
+                       <div class="btn-group">
+                        <button type="button" class="btn btn-success dropdown-toggle"
+                                data-toggle="dropdown">
+                          Kits robotica <span class="caret"></span>
+                        </button>
+                       
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/listado_producto/kits">Kits chunchebot robotica</a></li>
+                          <li><a href="/listado_producto/kits">Kits para armar y soldar</a></li>
+                          <li><a href="/listado_producto/kits">Kits robotica</a></li>
+                          <li><a href="/listado/producto">Todos los produtos</a></li>
+                          
+                        </ul>
+                       </div>
+
+
+                       <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle"
+                                data-toggle="dropdown">
+                          Arduinos <span class="caret"></span>
+                        </button>
+                       
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/listado_producto/tarjeta">Arduinos</a></li>
+                          <li><a href="/listado_producto/tarjeta">Pinguinos</a></li>
+                          <li><a href="/listado_producto/tarjeta">Raspberry PI</a></li>
+                          <li><a href="/listado/producto">Todos los produtos</a></li>
+                          
+                        </ul>
+                       </div>
+
+
+                       <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle"
+                                data-toggle="dropdown">
+                          Pymblock2 <span class="caret"></span>
+                        </button>
+                       
+                        <ul class="dropdown-menu" role="menu">
+                          
+                          <li><a href="/listado_producto/software">Comprar un Serial key de Pymblock</a></li>
+                          <li><a href="/listado_producto/software">Comprar bloques de programacion </a></li>
+                          <li><a href="/descargas">Descargar Pymblock2</a></li>
+                          <li><a href="/listado/producto">Todos los produtos</a></li>
+                          
+                        </ul>
+                       </div>
+
+
+                       <div class="btn-group">
+                        <button type="button" class="btn btn-warning dropdown-toggle"
+                                data-toggle="dropdown">
+                          Shields, repuestos <span class="caret"></span>
+                        </button>
+                       
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/listado_producto/shields">Tarjeta chunchebot</a></li>
+                          <li><a href="/listado_producto/shields">Shields</a></li>
+                          <li><a href="/listado_producto/sensores">Sensores arduino</a></li>
+                          <li><a href="/listado_producto/elementos">Repuestos</a></li>
+                          <li><a href="/listado_producto/elementos">Elementos</a></li>
+                          <li><a href="/listado/producto">Todos los produtos</a></li>
+                        </ul>
+                       </div>
+
+
+                       <div class="btn-group">
+                        <button type="button" class="btn btn-danger dropdown-toggle"
+                                data-toggle="dropdown">
+                          PCB <span class="caret"></span>
+                        </button>
+                       
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/listado_producto/impreso">Tarjeta PCB</a></li>
+                          <li><a href="/pcb">Cotizar precio de PCB </a></li>
+                          <li><a href="/listado/producto">Todos los produtos</a></li>
+                          
+                          
+                        </ul>
+                       </div>
+
+                 </center>  
+             
+            </div>
+
+           </div>
+
+<br>
+
+    {% block content %}
+    {% endblock %}
+
+<br>
+
+
+        
+  <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title"><center>Quieres contactarnos, o quieres saber mas sobre nosotros.... </center></h2>
+
+             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><font size="4" color="black">Que quieres saber sobre nosotros...</font></a><b class="caret"></b></a>
+               
+                  <ul class="dropdown-menu">
+                    <li><a href="/informacion/">Donde estan ubicados</a></li>
+                    <li><a href="/informacion/">como haran para entregarme mi producto</a></li>
+                    <li><a href="/informacion/">Como puedo pagar si no estoy en El Salvador</a></li>
+                    <li><a href="/informacion/">Como puedo pagar aqui en El Salvador</a></li>
+                    <li><a href="/informacion/">Como se que ustedes son responsables y recibire mi producto</a></li>
+                    <li><a href="/listado/staff">Quiero ver informacionn personal de ustedes</a></li>                   
+                    
+                
+                  </ul>
+            </li>
+
+      </div>
+
+
+    <div class="panel-body">
+
+            <div class="row">
+
+             <div class="col-md-6">
+                <div class="thumbnail">
+                  <div class="caption">
+                       <li><a href="http://chunchebot.blogspot.com">Quiero saber mas sobre el proyecto chunchebot</a></li> 
+                       <li><a href="http://pymblock.blogspot.com">Quiero saber mas sobre el software Pyblock2</a></li>   
+                         
+                  </div>                     
+                          
+                  
+                </div>
+            </div>
+
+
+             <div class="col-md-4">
+                <div class="thumbnail">
+                        
+                  <div class="caption">     
+                    <li>El Salvador (503) 78218224 </li>               
+                   <li>artetronica@gmail.com </li>    
+                  </div>      
+                </div>
+            </div>
+
+            
+
+            <div class="col-md-2">          
+
+                     <center> <a href=""><img src={{STATIC_URL}}tronico.jpg></a></center> 
+                       
+            </div>
+
+          </div>
+
+        </div>
+  </div>
+
+    <script src={{STATIC_URL}}bootstrap/js/jquery.min.js></script>
+    <script src={{STATIC_URL}}bootstrap/js/bootstrap.min.js></script>
+  </body>
+</html>
+
+
+
+

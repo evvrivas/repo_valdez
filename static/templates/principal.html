@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="row">
+
+             <div class="col-md-3">
+              </div>
+                  
+<div class="col-md-6">
+<center><div id="contenedor">
+        <div id="mycarousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#mycarousel" data-slide-to="1"></li>
+            <li data-target="#mycarousel" data-slide-to="2"></li>
+             <li data-target="#mycarousel" data-slide-to="3"></li>
+             <li data-target="#mycarousel" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="active item"> <img src={{STATIC_URL}}slide1.jpg alt="" /></div>
+            <div class="item"> <img src={{STATIC_URL}}slide2.jpg alt="" /></div>
+            <div class="item"> <img src={{STATIC_URL}}slide3.jpg alt="" /></div>
+            <div class="item"> <img src= {{STATIC_URL}}slide4.jpg alt="" /></div>
+            <div class="item"> <img src= {{STATIC_URL}}slide5.jpg alt="" /></div>
+          </div>
+          <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+</div></center>
+
+</div>
+
+
+       <div class="col-md-3">
+        </div>
+                 
+</div>
+
+ 
+ 			   
+<br><br>
+
+        
+	
+
+       
+  <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title"><center>En artetronica te queremos ayudar.... </center></h2>
+
+             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><font size="4" color="black">Que quieres hacer hoy...</font></a><b class="caret"></b></a>
+               
+                  <ul class="dropdown-menu">
+                    <li><a href="/listado_producto/kits">Adquirir un Kit de Robotica</a></li>
+                    <li><a href="/listado_producto/proyecto">Ver los proyetos hehos </a></li>
+                    <li><a href="/listado_producto/tarjeta">Adquirir una Tarjeta inteligente ARDUINO</a></li>
+                    <li><a href="/listado_producto/software">comprar un serialkey de pymblokc</a></li>
+                    <li><a href="/descargas/">Descargar pymblock V2.0</a></li>
+                    <li><a href="/descargas/">Descargar Manuales </a></li>
+                    <li><a href="/entrada_mensaje/0">Solo quiero preguntar algo</a></li>
+                    <li><a href="/entrada_mensaje/1">ver las preguntas de los demas usuarios</a></li>
+                   
+                     
+                           
+                  </ul>
+            </li>
+      
+
+      </div>
+
+    <div class="panel-body">
+
+            <div class="row">
+
+             <div class="col-md-3">
+                <div class="thumbnail">
+                  
+                  <a href="/listado/"><img src={{STATIC_URL}}pymblock.jpg></a>
+                  <div class="caption">
+                    <h4><center>Pymblok2 Programacion grafica</center></h4>     
+                  </div>                     
+                  <p>Pymblock es un potente software de programación grafica, tan fácil como arrastrar y soltar .
+                     Disfruta de la programación de robots y proyectos electrónicos en un ambiente fácil y rápido.</p>
+                    <p><a href="/descargas/">Descargue y pruebe Pymblock</a></p> 
+
+
+                  
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="thumbnail">
+                  
+                  <a href=""><img src={{STATIC_URL}}arduino.jpg></a>
+                        
+                  <div class="caption">
+                    <h4><center>Arduino y mas</center></h4>  
+                    <p>Realizar un buen proyecto depende de la tarjeta inteligente que uses, Arduino combina Facilidad, calidad y economía.</p>
+                    <p><a href="/listado_producto/tarjeta">Ver todas las tarjetas</a></p> 
+                    <p> </p>     
+                  </div>      
+                </div>
+            </div>
+
+
+                
+
+             <div class="col-md-3">
+                <div class="thumbnail">
+                  
+                  <a href=""><img src={{STATIC_URL}}chunchebot.jpg></a>
+                        
+                  <div class="caption">
+                    <h4><center>Kits y proyectos de robotica</center></h4>  
+                    <p>Tus proyectos son muy importantes, Tenemos un kit que se adecua a lo que buscas </p>   
+                    <p> </p> 
+                    <p><a href="/listado_producto/kits">El Proyecto Chunchebot (Kit de robotica educativa)</a></p>   
+                  </div>      
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="thumbnail">
+                 <a href=""><img src={{STATIC_URL}}acsesorios.jpg></a>
+                        
+                  <div class="caption">
+                    <h4><center>Shields Repuestos y acsesorios</center></h4>   
+                    <p>Contamos con un amplio y surtido stock de  shields accesorios y repuestos  para que todos tus proyectos sean una realidad.</p>
+                                       
+                    <p><a href="/listado_producto/elementos">Ver el catalogo.</a></p>
+ 
+                    
+         
+                  </div>      
+                </div>
+            </div>
+
+          </div>
+
+        </div>
+  </div>
+
+
+
+
+
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title"><center>Quieres conocernos?  Nosotros tambien..</center></h2>
+
+
+             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><font size="4" color="black">Registrate aqui...</font></a><b class="caret"></b></a>
+               
+                  <ul class="dropdown-menu">
+                    <li><a href="/entrada_usuario">Registrarme como nuevo usuario</a></li>
+                    <li><a href="/accounts/login/">Entra como usuario registardo</a></li>
+                                    
+                  </ul>
+            </li>
+
+
+
+              
+
+      </div>
+
+
+    <div class="panel-body">
+
+            <div class="row">
+
+             <div class="col-md-4">
+                <div class="thumbnail">
+                  <div class="caption">
+                    <h4><center>Quieres conocernos</center></h4>     
+                  </div>                     
+                  <p>Queremos ayudarte a realizar tus proyectos, contamos con un staff de profesionales expertos en  Electrónica, Programación y Robótica </p>        
+                  
+                </div>
+            </div>
+
+
+             <div class="col-md-4">
+                <div class="thumbnail">
+                        
+                  <div class="caption">
+                    <h4><center>Somos innovadores</center></h4>  
+                    <p>En Artetronica Fabricamos, Desarrollamos y vendemos  todo lo que necesites para darle vida a tus proyectos de electronica, programacion y robotica </p>     
+                  </div>      
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="thumbnail">
+                        
+                  <div class="caption">
+                    <h4><center>Entregas inmediatas</center></h4>   
+                    <p>Entregamos localmente en todo El Salvador.  También lo hacemos a todas partes del mundo atravez de el servicio de correos</p> 
+         
+                  </div>      
+                </div>
+            </div>
+
+          </div>
+
+        </div>
+  </div>
+
+ 
+
+
+{% endblock %}
+
+
+
